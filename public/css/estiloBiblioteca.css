@@ -13,11 +13,22 @@ form {
 	padding-top: 28px;
 	margin-bottom: 30px
 }
+ul{
+	background-color: #bbb6b657;
+
+}
+
 
 h1 {
 	text-align: center;
 	padding: 12px;
 	color: #ff0000 !important;
+
+}
+.h1_detalle {
+	text-align: center;
+	padding: 12px;
+	color: #11e3ff !important;
 
 }
 
@@ -135,6 +146,16 @@ input[type='submit']{
 	background-color: rgba(0, 0, 0, 0.1);
   }
   .tbody{
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.61);
 
+  }
+  .hidden-text-input {
+	color: transparent;
+  }
+  body{
+
+	background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  height: 100vh;
   }

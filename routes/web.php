@@ -34,7 +34,8 @@ Route::controller(BibliotecaController::class)->group(function(){
     Route::get('/Biblioteca/getperfil', [App\Http\Controllers\BibliotecaController::class, 'getperfil']);
     Route::get('/Biblioteca/logout', [App\Http\Controllers\BibliotecaController::class, 'cerrarsesion']);
     Route::get('/Biblioteca/show', [App\Http\Controllers\BibliotecaController::class, 'showLibros']);    
-    Route::get('/Biblioteca/showDetalleLibro{$id}', [App\Http\Controllers\BibliotecaController::class, 'showDetalleLibros']); 
+   // Route::get('/Biblioteca/detalleLibro', [App\Http\Controllers\BibliotecaController::class, 'showDetalleLibros({id})']); 
+     Route::get('/Biblioteca/detalleLibro{id}',  [App\Http\Controllers\BibliotecaController::class, 'showDetalleLibros'])->name('mostrarDetalle');
     Route::match(array('GET','POST'),('/Biblioteca/showLibrosPrestados'), [App\Http\Controllers\BibliotecaController::class, 'showLibrosPrestados'])->name('showPrestamos');
     
 });

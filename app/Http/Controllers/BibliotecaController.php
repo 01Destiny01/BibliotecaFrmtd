@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+use function Laravel\Prompts\table;
+
 class BibliotecaController extends Controller
 {
     public function index()
@@ -37,13 +39,15 @@ class BibliotecaController extends Controller
     // show mostrara los prestamos del usuario
     public function showLibros()
     {
-        $libros = DB::select('select * from libros ');
+        $libros = DB::table('libros')
+            ->select('*')->get();
         return view('Biblioteca.show', ['libros' => $libros]);
     }
-    public function showDetalleLibros($id){
+    public function showDetalleLibros($id)
+    {
 
-        $libro = DB::find($id);
-        return view('Biblioteca.detalleLibro{$id?}', ['libro' => $libro]);
+        $libro = Libro::find($id);
+        return view('Biblioteca.detalleLibro', ['libro' => $libro]);
     }
     public function getperfil()
     {
@@ -68,16 +72,19 @@ class BibliotecaController extends Controller
 
 
             $prestamo->save();
+            $this->mensaje_alert("Prestamo completado!");
             return view('Biblioteca.show');
         } else {
-
-            echo '<script language="javascript">';
-            echo 'alert("error, este libro ya ha sido prestado a este usuario y todavia no ha sido devuelto")';
-            echo '</script>';
+            $this->mensaje_alert("error, este libro ya ha sido prestado a este usuario y todavia no ha sido devuelto");
             return view('Biblioteca.show');
         };
     }
+    function mensaje_alert($message)
+    {
 
+        // Display the alert box  
+        echo "<script>alert('$message');</script>";
+    }
     public function publicarLibro(Request $request)
     {
         return view('Biblioteca.publicar');
@@ -104,13 +111,16 @@ class BibliotecaController extends Controller
         }
 
         $autorR = $request['autor'];
-        $autor = DB::table('autores')->where('nombre', $autorR)->first();
+        $autor = DB::table('autores')
+            ->where('nombre', $autorR)
+            ->first();
         $idautor = -1;
         if ($autor == null) {
             $au = new Autor;
             $au->nombre = $request['autor'];
             $au->save();
-            $autorN = DB::table('autores')->where('nombre', $autorR)->first();
+            $autorN = DB::table('autores')
+                ->where('nombre', $autorR)->first();
             $idautor = $autorN->id;
         } elseif ($autor != null) {
             $idautor = $autor->id;
@@ -121,7 +131,8 @@ class BibliotecaController extends Controller
         $libro->idAutor = $idautor;
         $libro->ano_escritura = $request['ano_escritura'];
         $libro->save();
-        $libroR = DB::table('libros')->where('titulo', $libro->titulo)->first();
+        $libroR = DB::table('libros')
+            ->where('titulo', $libro->titulo)->first();
 
         $au_libros = new autores_libros;
         $au_libros->autor_id = $idautor;
