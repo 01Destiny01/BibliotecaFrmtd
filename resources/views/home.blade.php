@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="cardOpacity">
                     <div class="card-header">{{ __('PRESTAMOS') }}</div>
-                    <iframe src="/Biblioteca/showLibrosPrestados" title="PRESTAMOS" hidden=true> </iframe>
+                    <iframe src="{{ route('showPrestamos') }}" title="PRESTAMOS" hidden=true> </iframe>
                     <div class="card-body">
                         @if (session('status'))
                             <?php
@@ -17,8 +17,6 @@
                             }
                             ?>
                             <div class="alert alert-success" role="alert">
-
-
                             </div>
                         @endif
 

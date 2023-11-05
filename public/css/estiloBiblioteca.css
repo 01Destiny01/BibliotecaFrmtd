@@ -4,7 +4,9 @@
 	font-family: century gothic;
 	text-align: center;
 }
-
+.divBack{
+	background-color: rgb(192, 162, 80);
+}
 form {
 	padding: 50px 20px;
 	background-color: #bbb6b657;

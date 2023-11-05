@@ -4,7 +4,9 @@
 	font-family: century gothic;
 	text-align: center;
 }
-
+.cardOpacity{
+opacity: 70%;
+}
 form {
 	padding: 50px 20px;
 	background-color: #bbb6b657;

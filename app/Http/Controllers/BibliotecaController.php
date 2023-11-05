@@ -19,8 +19,8 @@ class BibliotecaController extends Controller
 {
     public function index()
     {
-
-        return view('Biblioteca.index');
+return view("Biblioteca.index");
+  
     }
     // public function index()
     // {
@@ -29,26 +29,14 @@ class BibliotecaController extends Controller
 
     //create creara un nuevo prestamo 
 
-    public function getlibros()
-    {
-    }
+    
     public function cerrarsesion()
     {
         return view('Biblioteca.logout');
     }
     // show mostrara los prestamos del usuario
-    public function showLibros()
-    {
-        $libros = DB::table('libros')
-            ->select('*')->get();
-        return view('Biblioteca.show', ['libros' => $libros]);
-    }
-    public function showDetalleLibros($id)
-    {
-
-        $libro = Libro::find($id);
-        return view('Biblioteca.detalleLibro', ['libro' => $libro]);
-    }
+ 
+    
     public function getperfil()
     {
 
@@ -101,7 +89,7 @@ class BibliotecaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/Biblioteca/publicar')
+            return redirect( route('publicarLibro'))
                 ->withErrors($validator)
                 ->withInput();
             //echo json_encode($validator);

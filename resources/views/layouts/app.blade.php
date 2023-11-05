@@ -1,10 +1,10 @@
 <!doctype html>
-<html>
+<html style="background-image: url('{{ asset('img/biblio.jpg') }}')";>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href={{ asset('resources\css\app.css') }}>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,11 +18,11 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div id="app">
+<body  style="background-image: url('{{ asset('img/biblio.jpg') }}')">
+    <div id="app"  style="background-image: url('{{ asset('img/biblio.jpg') }}')">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+            <div class="container" >
+                <a class="navbar-brand" href="{{ url('home') }}">
                     {{ config('Biblioteca', 'Biblioteca') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,7 +31,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 

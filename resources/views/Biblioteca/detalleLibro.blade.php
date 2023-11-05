@@ -7,16 +7,11 @@
     <title>{{ $libro->titulo }}</title>
 
 </head>
-<form method="POST" action="{{ route('alquilar') }}">
+<form method="POST"  action="{{ route('alquilar') }}">
     @csrf
-    <body>
-
-        <ul>
-            <div>
-                <h1 class="h1_detalle">{{ $libro->titulo }}</h1>
-            </div>
-        </ul>
-
+    <body  style="background-image: url('{{ asset('img/biblio.jpg') }}')"> 
+        <div  class="divBack">
+        <h1 class="h1_detalle">{{ $libro->titulo }}</h1>
         <div>{{ $libro->editorial }}
         </div>
 
@@ -28,6 +23,7 @@
             <input type="submit" class='hidden-text-input' name="libro_id" value="{{$libro->id}}" title="ALQUILAR" placeholder="alquilar">Alquilar</button>
 
         </div>
+    </div>
 </form>
 </body>
 
