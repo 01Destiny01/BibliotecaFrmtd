@@ -12,11 +12,6 @@
     use Illuminate\Support\Facades\DB;
     $usuId = auth()->id();
     //Join libros + prestamos
-    #$prestamos = DB::select("select l.titulo,l.id
-    # from prestamos p, libros l, users u
-    #where p.usuario_id = u.id and p.libro_id = l.id
-    #and u.id = ' $usuId '
-    #and p.fecha_devolucion is null ");
     $prestamos = DB::table('prestamos')
         ->select('libros.titulo', 'libros.id')
         ->join('users', 'users.id', '=', 'prestamos.usuario_id')
@@ -33,14 +28,13 @@
             <div class="padreCard">
                 <div class="cardHijo">
                     <p class="card-text">{{ $prestamo->titulo }}</p>
-                    <input type="number" readonly name="id" value="{{ $prestamo->id }}" />
+                    <input type="number"  class="inputInvisible" readonly name="id" value="{{ $prestamo->id }}" />
                     <button type="submit">Devolver</button>
                 </div>
         </form>
     @endforeach
     </div>
     <a href="{{route('index')}}">Volver </a>
-
 </body>
 
 </html>

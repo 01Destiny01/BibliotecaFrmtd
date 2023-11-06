@@ -19,7 +19,11 @@ ul {
 	-webkit-text-fill-color: #f0ff23e8;
 
 }
+.inputInvisible{
 
+	opacity: 0%;
+
+}
 .login-box {
 	position: absolute;
 	top: 50%;
@@ -31,7 +35,7 @@ ul {
 	width: 400px;
 	padding: 40px;
 
-	background: rgba(0, 0, 0, .5);
+	background: rgba(33, 151, 172, 0.637);
 	box-sizing: border-box;
 	box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
 	border-radius: 10px;
@@ -41,7 +45,7 @@ ul {
 h1 {
 	text-align: center;
 	padding: 12px;
-	color: #ff0000 !important;
+	color: #e2ac16 !important;
 
 }
 

@@ -18,7 +18,7 @@
 
     <a href="{{ route('index') }}"> Volver</button>
         @foreach ($libros as $libro)
-            <form method="POST" > 
+            <form method="POST">
                 @csrf
                 <div class="padreCard">
                     <div class="cardHijo">
@@ -33,9 +33,6 @@
 
         </div>
 
-
-        <h1></h1>
-        <h1></h1>
 </body>
 
 </html>

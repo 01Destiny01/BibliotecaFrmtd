@@ -7,25 +7,32 @@
     <title>{{ $libro->titulo }}</title>
 
 </head>
-<form method="POST" class="login-box"  action="{{ route('alquilar') }}">
+<form method="POST" class="login-box" action="{{ route('alquilar') }}">
     @csrf
-    <body  style="background-image: url('{{ asset('img/biblio.jpg') }}')"> 
-  
-        <div  class="login-box">
-        <h1 class="h1_detalle">{{ $libro->titulo }}</h1>
-        <div> <h1 class="h1_detalle "> [editorial]</h1>
-        </div>
-        <div><h3 class="h1Yello">{{ $libro->editorial }}</h3></div>
 
-        <h1 class="h1Yello">{{ $libro->autorlibro }}</h1>
-        <div>
-           <h1 class="h1Yello"> {{ $libro->ano_escritura }}</h1>
-        </div>
-        <div>
-            <input type="submit"  name="libro_id" value="{{$libro->id}}" title="ALQUILAR" placeholder="alquilar" aria-valuetext="Alquilar">Alquilar</button>
+    <body style="background-image: url('{{ asset('img/biblio.jpg') }}')">
+
+        <div class="login-box">
+            <h1 class="h1_detalle">{{ $libro->titulo }}</h1>
+            <div>
+                <h1 class="h1_detalle "> [editorial]</h1>
+            </div>
+            <div>
+                <h3 class="h1Yello">{{ $libro->editorial }}</h3>
+            </div>
+
+            <h1 class="h1Yello">{{ $libro->autorlibro }}</h1>
+            <div>
+                <h1 class="h1Yello"> {{ $libro->ano_escritura }}</h1>
+            </div>
+            <div>
+                <input class="inputInvisible" type="number"  readonly name="libro_id" name="libro_id" value="{{$libro->id }}"></button>
+                <input type="submit"value = "Alquilar"></button>
+                <script>
+                </script>
+            </div>
 
         </div>
-    </div>
 </form>
 </body>
 

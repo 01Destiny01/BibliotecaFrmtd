@@ -1,4 +1,4 @@
-<html>
+<html style="background-image: url('{{ asset('img/biblio.jpg') }}')"> 
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 
 <body>
     <a href="{{route('index')}}">Volver </a>
-    <h1>Formulario de Creación de Libro</h1>
+    <h1>Crear Libro</h1>
     
     <form class="login-box" action="{{ route('storePublicar') }}" method="post">
         @csrf
