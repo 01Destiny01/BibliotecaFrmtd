@@ -16,9 +16,9 @@
     session_start();
     ?>
 
-    <a href="{{ route('home') }}"> Volver</button>
+    <a href="{{ route('index') }}"> Volver</button>
         @foreach ($libros as $libro)
-            <form method="POST">
+            <form method="POST" > 
                 @csrf
                 <div class="padreCard">
                     <div class="cardHijo">

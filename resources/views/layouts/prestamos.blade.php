@@ -22,6 +22,7 @@
         ->join('users', 'users.id', '=', 'prestamos.usuario_id')
         ->join('libros', 'libros.id', '=', 'prestamos.libro_id')
         ->where('users.id', $usuId)
+        ->whereNull('fecha_devolucion')
         ->get();
     
     ?>
@@ -38,7 +39,7 @@
         </form>
     @endforeach
     </div>
-    <a href="/home">Volver </a>
+    <a href="{{route('index')}}">Volver </a>
 
 </body>
 

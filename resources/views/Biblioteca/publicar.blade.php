@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={{ asset('css/estilo.css') }}>
+    <link rel="stylesheet" href={{ asset('css/estiloBiblioteca.css') }}>
     <title>Crear libro</title>
 </head>
 
 <body>
+    <a href="{{route('index')}}">Volver </a>
     <h1>Formulario de Creación de Libro</h1>
-    <form action="{{ route('storePublicar') }}" method="post">
+    
+    <form class="login-box" action="{{ route('storePublicar') }}" method="post">
         @csrf
         <label for="titulo">Título del Libro:</label>
         <input type="text" id="titulo" name="titulo" required><br><br>
@@ -24,9 +26,10 @@
         <input id="ano_escritura" name="ano_escritura" required><br><br>
 
         <input type="submit" value="Crear Libro">
-
-        <a href="/home">Volver </a>
+ 
     </form>
+           
+  
 </body>
 
 </html>
